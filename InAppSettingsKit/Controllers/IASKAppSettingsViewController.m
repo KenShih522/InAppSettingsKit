@@ -177,6 +177,8 @@ CGRect IASKCGRectSwap(CGRect rect);
         if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)	// don't use etched style on iOS 7
 #endif
             self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
+	if ([self.tableView respondsToSelector:@selector(setCellLayoutMarginsFollowReadableWidth:)])
+            self.tableView.cellLayoutMarginsFollowReadableWidth = NO;
     }
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapToEndEdit:)];   
     tapGesture.cancelsTouchesInView = NO;
